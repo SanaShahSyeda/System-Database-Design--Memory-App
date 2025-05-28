@@ -15,6 +15,7 @@ This repository is dedicated to tracking and organizing the **system architectur
 - [🛠 Requirement Analysis](#-requirement-analysis)
 - [📐 System Design](#-system-design)
 - [🗃️ Database Design](#-database-design)
+- [📈 Diagrams](#-diagrams)
 - [📃 License](#-license)
 
 ---
@@ -65,12 +66,20 @@ A layered architecture for separation of concerns:
 - Covers all core entities (Users, Memories, Boards, Media, Notifications, Tags)
 - Focus on normalization and performance.
 
-### 📌 Topics to be Covered:
-- Entity-Relationship Diagrams (ERD)
-- Table structure and normalization
-- Query optimization & indexing strategies
-  
 ---
+
+## 📈 Diagrams
+
+| Diagram Type             | Description                                      | Status  |
+|--------------------------|--------------------------------------------------|---------|
+| System Architecture      | High-level overview of system components         | ✅ Added  |
+| Use Case Diagram         | Functionalities from user's perspective          | ⏳ In Progress |
+| Entity Relationship (ER) | Database schema, tables and their relationships  | Not started |
+| Class Diagram            | Class-level interaction and structure (LLD)      | Not started |
+| API Flow Diagram         | Request/response and endpoint interactions       | Not started |
+
+### Architecture Diagram
+[Architecture Diagram](diagrams/architecture-diagram.png)
 
 ## 📃 License
 
