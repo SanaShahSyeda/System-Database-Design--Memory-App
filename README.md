@@ -1,2 +1,80 @@
-# Database-Designing
-This repository is dedicated to tracking and organizing my journey of learning database design. It includes key concepts, structured notes, and practical work such as: ERDs, Use Case Diagrams,  Database Schemas (Relational Models),  Normalization Steps,  Sample Use Cases and Examples
+# 🧠 Memory App — System & Database Design
+
+This repository is dedicated to tracking and organizing the **system architecture** and **database design** journey of the _Memory App_, a productivity tool that helps users save, categorize, and revisit personal or creative memories.
+
+> 🎯 Objective: Design the entire backend architecture from scratch using Spring Boot with a strong emphasis on planning — including requirement gathering, data modeling, and API design.
+
+---
+
+## 📚 Table of Contents
+
+- [🛠 Requirement Analysis](#-requirement-analysis)
+- [📐 System Design](#-system-design)
+- [🗃️ Database Design](#-database-design)
+- [📃 License](#-license)
+
+---
+
+## 🛠 Requirement Analysis
+
+### ✅ Core Features
+- User registration and login (Authentication & Authorization)
+- Create, view, edit, delete memories (with text, images, or video)
+- Group memories into **boards**
+- Drag & drop UI to rearrange memories across boards
+- Calendar view for timeline-based visualization (optional)
+- Daily memory reminder notifications (“On this day…”) (optional)
+
+### 🧰 Non-Functional Requirements
+- Secure media and user data handling
+- Modular, scalable, and maintainable backend
+- Media file upload support (Cloudinary / AWS S3)
+
+---
+
+## 📐 System Design
+
+### 🔹 Overview
+A layered architecture for separation of concerns:
+- **Frontend** (Mobile & Web)
+- **Backend API** (Spring Boot)
+- **Database** (Relational)
+- **Media Storage** (S3 or Cloudinary)
+- **Scheduler/Notification Service** (optional)
+
+### 🧩 Components
+- Authentication Service (JWT-based)
+- Memory & Media Service
+- Board & Drag-n-Drop Service
+- Notification Scheduler (optional)
+- Calendar Module (optional)
+
+### 📂 Design Process
+- High-Level Design (HLD): System architecture, modules, technology decisions
+- Low-Level Design (LLD): Class diagrams, service flow, database interaction patterns
+
+---
+
+## 🗃️ Database Design
+
+- Modeled to ensure data integrity, relationship consistency, and efficient querying.
+- Covers all core entities (Users, Memories, Boards, Media, Notifications, Tags)
+- Focus on normalization and performance.
+
+### 📌 Topics to be Covered:
+- Entity-Relationship Diagrams (ERD)
+- Table structure and normalization
+- Query optimization & indexing strategies
+  
+---
+
+## 📃 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## ✍️ Author
+
+Built and maintained by Sana Gul — as part of a learning journey in full-stack system design and development.
+
