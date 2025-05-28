@@ -4,6 +4,10 @@ This repository is dedicated to tracking and organizing the **system architectur
 
 > 🎯 Objective: Design the entire backend architecture from scratch using Spring Boot with a strong emphasis on planning — including requirement gathering, data modeling, and API design.
 
+### 🎨 UI Design
+- 📱 [View the Figma Prototype](https://www.figma.com/design/tT1NeXsZG9n306nEg4QpU0/Untitled?node-id=0-1&t=J2jeNuKiBIQBmsho-1)
+- ✨ Designed using [**Stitch by Google**](https://stitch.withgoogle.com/)
+
 ---
 
 ## 📚 Table of Contents
