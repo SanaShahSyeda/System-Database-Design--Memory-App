@@ -24,7 +24,7 @@ This repository is dedicated to tracking and organizing the **system architectur
 
 ### ✅ Core Features
 - User registration and login (Authentication & Authorization)
-- Create, view, edit, delete memories (with text, images, or video)
+- Create, view, edit, draft, delete memories (with text, images, or video)
 - Group memories into **boards**
 - Drag & drop UI to rearrange memories across boards
 - Calendar view for timeline-based visualization (optional)
@@ -73,6 +73,7 @@ A layered architecture for separation of concerns:
 | Diagram Type             | Description                                      | Status  |
 |--------------------------|--------------------------------------------------|---------|
 | System Architecture      | High-level overview of system components         | ✅ Added  |
+| Flowchart Diagram        | Flow of user actions within the system           | ✅ Added  |
 | Use Case Diagram         | Functionalities from user's perspective          | ⏳ In Progress |
 | Entity Relationship (ER) | Database schema, tables and their relationships  | Not started |
 | Class Diagram            | Class-level interaction and structure (LLD)      | Not started |
@@ -80,6 +81,21 @@ A layered architecture for separation of concerns:
 
 ### Architecture Diagram
 ![Image](diagrams/architecture-diagram.png)
+
+### Flowchart Diagram
+
+#### Symbols Reference
+
+| Symbol      | Name        | Function                                                       |
+|-------------|-------------|----------------------------------------------------------------|
+| 🟠 Oval          | Start/End     | An oval represents a start or end point                       |
+| ➡️ Arrow         | Arrows        | A line is a connector that shows relationships between shapes |
+| 🔷 Parallelogram | Input/Output  | A parallelogram represents input or output                |
+| ▭ Rectangle      | Process       | A rectangle represents a process                              |
+| 🔶 Diamond       | Decision      | A diamond indicates a decision                                |
+
+#### Diagram
+![Image](diagrams/flowchart-diagram.png)
 
 ## 📃 License
 
