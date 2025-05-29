@@ -79,7 +79,7 @@ A layered architecture for separation of concerns:
 | API Flow Diagram         | Request/response and endpoint interactions       | Not started |
 
 ### Architecture Diagram
-[Architecture Diagram](diagrams/architecture-diagram.png)
+![Image](diagrams/architecture-diagram.png)
 
 ## 📃 License
 
