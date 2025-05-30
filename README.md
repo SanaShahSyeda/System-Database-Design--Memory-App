@@ -74,7 +74,7 @@ A layered architecture for separation of concerns:
 |--------------------------|--------------------------------------------------|---------|
 | System Architecture      | High-level overview of system components         | ✅ Added  |
 | Flowchart Diagram        | Flow of user actions within the system           | ✅ Added  |
-| Use Case Diagram         | Functionalities from user's perspective          | ⏳ In Progress |
+| Use Case Diagram         | Functionalities from user's perspective          | ✅ Added  |
 | Entity Relationship (ER) | Database schema, tables and their relationships  | Not started |
 | Class Diagram            | Class-level interaction and structure (LLD)      | Not started |
 | API Flow Diagram         | Request/response and endpoint interactions       | Not started |
@@ -96,6 +96,24 @@ A layered architecture for separation of concerns:
 
 #### Diagram
 ![Image](diagrams/flowchart-diagram.png)
+
+###  Use Case Diagram 
+
+#### Symbols Reference
+
+| Symbol / Shape      | Meaning                                  |
+|---------------------|-------------------------------------------|
+| 🧍 **Actor**         | A user or system that interacts with the system |
+| 🟦 **System Boundary** | The entire application or a subsystem container |
+| 🔹 **Use Case**      | A specific action or functionality in the system |
+| 🔁 ``<<include>>``   | Mandatory relationship: common behavior reused by multiple use cases |
+| 🧩 ``<<extend>>``    | Optional behavior that extends a base use case |
+| -> **Association**   | Line connecting an actor to a use case (interaction) |
+
+## 🖼 Use Case Diagram
+
+![Use Case Diagram](./diagrams/use-case-diagram.png)
+
 
 ## 📃 License
 
