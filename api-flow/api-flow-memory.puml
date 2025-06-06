@@ -1,0 +1,161 @@
+@startuml memory-module
+skinparam style strictuml
+skinparam defaultTextAlignment center
+
+|User|
+start
+:Clicks "Create Memory";
+
+|Frontend|
+:POST /api/memories;
+
+|Backend|
+:<back:Gray>Log create request;
+:Sanitize input;
+:Prepare media for upload;
+
+|Cloudinary|
+:<back:LimeGreen>Upload media;
+
+|Backend|
+:Check Cloudinary upload response;
+
+if ("Valid input & upload?") then ([yes])
+  |Database|
+  :<back:LimeGreen>Insert memory record;
+  
+  |Backend|
+  :<back:LimeGreen>Return success;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return 400/500 error;
+endif
+
+|User|
+:Clicks "Edit Memory";
+
+|Frontend|
+:PUT /api/memories/:id;
+
+|Backend|
+:<back:Gray>Log edit request;
+:Sanitize input;
+
+if ("New media to upload?") then ([yes])
+  |Cloudinary|
+  :<back:LimeGreen>Upload new media;
+endif
+
+if ("Valid edit data?") then ([yes])
+  |Database|
+  :<back:LimeGreen>Update memory record;
+
+  |Backend|
+  :<back:LimeGreen>Return updated memory;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return validation error;
+endif
+
+|User|
+:Clicks "Delete Memory";
+
+|Frontend|
+:DELETE /api/memories/:id;
+
+|Backend|
+:<back:Gray>Log delete request;
+
+if ("Memory exists?") then ([yes])
+  |Database|
+  :<back:LimeGreen>Delete memory record;
+
+  |Backend|
+  :<back:LimeGreen>Return delete confirmation;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return 404 not found;
+endif
+
+|User|
+:Clicks "Save Draft";
+
+|Frontend|
+:POST /api/memories/draft;
+
+|Backend|
+:<back:Gray>Log draft save;
+
+if ("Valid draft?") then ([yes])
+  |Database|
+  :<back:LimeGreen>Insert draft record;
+
+  |Backend|
+  :<back:LimeGreen>Return draft saved;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return draft error;
+endif
+
+|User|
+:Clicks "Mark as Favorite";
+
+|Frontend|
+:PATCH /api/memories/:id/favorite;
+
+|Backend|
+:<back:Gray>Log favorite toggle;
+
+if ("Memory exists?") then ([yes])
+  |Database|
+  :<back:LimeGreen>Update favorite status;
+
+  |Backend|
+  :<back:LimeGreen>Return updated memory;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return error;
+endif
+
+|User|
+:Clicks "Move Memory";
+
+|Frontend|
+:PATCH /api/memories/:id/move;
+
+|Backend|
+:<back:Gray>Log move request;
+
+if ("Memory & Board valid?") then ([yes])
+  |Database|
+  :<back:LimeGreen>Update boardId for memory;
+
+  |Backend|
+  :<back:LimeGreen>Return move success;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return move error;
+endif
+
+|User|
+:Filters Memories;
+
+|Frontend|
+:GET /api/memories?tag=...&date=...&title=...&media=...;
+
+|Backend|
+:<back:Gray>Log filter query;
+
+|Database|
+:<back:LimeGreen>Query memory filters;
+
+if ("Results found?") then ([yes])
+  |Backend|
+  :<back:LimeGreen>Return filtered memories;
+else ([no])
+  |Backend|
+  :<back:Salmon>No matches found;
+endif
+
+stop
+@enduml

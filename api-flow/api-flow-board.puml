@@ -1,0 +1,105 @@
+@startuml board-module
+skinparam style strictuml
+skinparam defaultTextAlignment center
+
+|User|
+start
+:Clicks "Create Board";
+
+|Frontend|
+:POST /api/boards;
+
+|Backend|
+:Validate input;
+
+|Logging|
+:<back:Gray>Log create board request;
+
+|Database|
+:<back:LimeGreen>Insert board record;
+
+|Backend|
+if ("Board created?") then ([yes])
+  :<back:LimeGreen>Return success response;
+else ([no])
+  |Logging|
+  :<back:Gray>Log creation error;
+  |Backend|
+  :<back:Salmon>Return 500 error;
+  stop
+endif
+
+|User|
+:Edit Board;
+
+|Frontend|
+:PUT /api/boards/:id;
+
+|Backend|
+:Validate input;
+
+|Logging|
+:<back:Gray>Log update request;
+
+|Database|
+:<back:LimeGreen>Update board record;
+
+|Backend|
+if ("Update successful?") then ([yes])
+  :<back:LimeGreen>Return updated board;
+else ([no])
+  |Logging|
+  :<back:Gray>Log update error;
+  |Backend|
+  :<back:Salmon>Return update error;
+  stop
+endif
+
+|User|
+:Delete Board;
+
+|Frontend|
+:DELETE /api/boards/:id;
+
+|Logging|
+:<back:Gray>Log deletion request;
+
+|Database|
+:<back:LimeGreen>Delete board record;
+
+|Backend|
+if ("Board deleted?") then ([yes])
+  :<back:LimeGreen>Delete related memories;
+else ([no])
+  |Logging|
+  :<back:Gray>Log deletion error;
+  |Backend|
+  :<back:Salmon>Return deletion error;
+  stop
+endif
+
+|User|
+:View Boards;
+
+|Frontend|
+:GET /api/boards;
+
+|Logging|
+:<back:Gray>Log fetch request;
+
+|Database|
+:<back:LimeGreen>Query boards for user;
+
+|Backend|
+if ("Boards found?") then ([yes])
+  :<back:LimeGreen>Return board list;
+else ([no])
+  |Logging|
+  :<back:Gray>Log no boards found;
+  |Backend|
+  :<back:Salmon>Return no boards found;
+  stop
+endif
+
+stop
+@enduml

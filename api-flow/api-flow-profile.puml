@@ -1,0 +1,72 @@
+@startuml profile-module
+skinparam style strictuml
+skinparam defaultTextAlignment center
+
+|User|
+start
+:Edit Profile;
+:PUT /api/profile;
+
+|Frontend|
+:<back:Gray>Send profile update request;
+
+|Backend|
+:<back:Gray>Receive profile update request;
+
+|Database|
+:Update profile data;
+
+|Logging|
+:<back:Gray>Log "Profile update request received";
+
+if ("Update successful?") then ([yes])
+  |Logging|
+  :<back:Gray>Log "Profile update success";
+  |Backend|
+  :<back:LimeGreen>Return success response;
+else ([no])
+  |Logging|
+  :<back:Gray>Log "Profile update failed";
+  |Backend|
+  :<back:Salmon>Return error response;
+endif
+
+|User|
+:Change Password;
+:PUT /api/profile/change-password;
+
+|Frontend|
+:<back:Gray>Send change password request;
+
+|Backend|
+:<back:Gray>Receive change password request;
+
+|Database|
+:Update password;
+
+|Logging|
+:<back:Gray>Log "Change password request received";
+
+if ("Password change successful?") then ([yes])
+  |Logging|
+  :<back:Gray>Log "Password change success";
+  |Backend|
+  :<back:LimeGreen>Return success response;
+else ([no])
+  |Logging|
+  :<back:Gray>Log "Password change failed";
+  |Backend|
+  :<back:Salmon>Return error response;
+endif
+
+|User|
+:Sign Out;
+
+|Frontend|
+:<back:Gray>Clear JWT token;
+
+|Backend|
+:<back:Gray>Log "User signed out";
+
+stop
+@enduml

@@ -1,0 +1,65 @@
+@startuml notification-module
+skinparam style strictuml
+skinparam defaultTextAlignment center
+
+|User|
+start
+:Enable Daily Notifications;
+:POST /api/notifications/enable;
+
+|Backend|
+:<back:Gray>Log enable request;
+:Schedule daily job;
+
+if ("Job scheduled successfully?") then ([yes])
+  :<back:LimeGreen>Return success response;
+else ([no])
+  :<back:Salmon>Return error response;
+endif
+
+|User|
+:Disable Daily Notifications;
+:POST /api/notifications/disable;
+
+|Backend|
+:<back:Gray>Log disable request;
+:Cancel scheduled job;
+
+if ("Job canceled successfully?") then ([yes])
+  :<back:LimeGreen>Return success response;
+else ([no])
+  :<back:Salmon>Return error response;
+endif
+
+|User|
+:Check Notification History;
+:GET /api/notifications/history;
+
+|Backend|
+:<back:Gray>Log history fetch;
+|Database|
+:<back:LimeGreen>Query user notification history;
+
+if ("History found?") then ([yes])
+  :<back:LimeGreen>Return history;
+else ([no])
+  :<back:Salmon>Return empty or error;
+endif
+
+|User|
+:Get Today's Reminders;
+:GET /api/notifications/today;
+
+|Backend|
+:<back:Gray>Log today’s reminder fetch;
+|Database|
+:<back:LimeGreen>Query today's reminders;
+
+if ("Reminders available?") then ([yes])
+  :<back:LimeGreen>Return reminders;
+else ([no])
+  :<back:Salmon>No reminders found;
+endif
+
+stop
+@enduml

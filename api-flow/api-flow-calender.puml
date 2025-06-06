@@ -1,0 +1,19 @@
+
+@startuml calendar-module
+skinparam style strictuml
+skinparam defaultTextAlignment center
+
+|User|
+start
+:Opens Calendar View;
+
+|Frontend|
+:GET /api/calendar;
+
+|Backend|
+:<back:SkyBlue>Return dates with memory counts;
+
+|Frontend|
+:<back:SkyBlue>Color-coded dates based on status;
+stop
+@enduml

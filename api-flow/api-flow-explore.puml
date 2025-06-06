@@ -1,0 +1,86 @@
+@startuml explore-module
+skinparam style strictuml
+skinparam defaultTextAlignment center
+
+|User|
+start
+:Open Explore;
+
+|Frontend|
+:GET /api/memories;
+
+|Backend|
+:<back:Gray>Log fetch all memories;
+
+|Database|
+:<back:LimeGreen>Query all memories;
+
+if ("Fetch success?") then ([yes])
+  |Backend|
+  :<back:LimeGreen>Return all memories;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return error;
+endif
+
+|Frontend|
+:<back:SkyBlue>All memories loaded;
+
+|User|
+:Sort Memories;
+:GET /api/memories?sort=oldest|newest|random;
+
+|Backend|
+:<back:Gray>Log sort query;
+
+|Database|
+:<back:LimeGreen>Query sorted memories;
+
+if ("Sort success?") then ([yes])
+  |Backend|
+  :<back:LimeGreen>Return sorted list;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return error;
+endif
+
+|User|
+:Apply Filters;
+:GET /api/memories?board=...&tag=...&media=...;
+
+|Backend|
+:<back:Gray>Log filter request;
+
+|Database|
+:<back:LimeGreen>Query with filters;
+
+if ("Filter match found?") then ([yes])
+  |Backend|
+  :<back:LimeGreen>Return filtered memories;
+else ([no])
+  |Backend|
+  :<back:Salmon>No matches found;
+endif
+
+|User|
+:Clicks Specific Memory;
+
+|Frontend|
+:GET /api/memories/:id;
+
+|Backend|
+:<back:Gray>Log memory detail request;
+
+|Database|
+:<back:LimeGreen>Query memory by ID;
+
+if ("Memory exists?") then ([yes])
+  |Backend|
+  :<back:LimeGreen>Return memory content;
+else ([no])
+  |Backend|
+  :<back:Salmon>Return 404 not found;
+endif
+
+stop
+@enduml

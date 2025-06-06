@@ -1,0 +1,64 @@
+@startuml auth-module
+skinparam style strictuml
+skinparam defaultTextAlignment center
+
+|User|
+start
+:Clicks "Sign Up";
+
+|Frontend|
+:POST /api/auth/signup;
+
+|Backend|
+:Validate input;
+:<back:SkyBlue>Hash password;
+
+|Database|
+:<back:SkyBlue>Insert user record;
+
+|Backend|
+:<back:SkyBlue>Generate JWT;
+
+|Frontend|
+:Store JWT;
+
+|User|
+:Clicks "Sign In";
+
+|Frontend|
+:POST /api/auth/signin;
+
+|Backend|
+:Validate input;
+
+|Database|
+:<back:SkyBlue>Fetch user by email;
+
+|Backend|
+:Verify credentials;
+if ("Authorized?") then ([yes])
+  :<back:SkyBlue>Generate JWT;
+  |Frontend|
+  :Store JWT;
+else ([no])
+  :<back:Salmon>Return 401 Unauthorized;
+  stop
+endif
+
+|User|
+:Clicks "Forgot Password";
+
+|Frontend|
+:POST /api/auth/forgot-password;
+
+|Backend|
+:<back:SkyBlue>Generate reset token;
+
+|Database|
+:<back:SkyBlue>Update user with token;
+
+|Backend|
+:<back:SkyBlue>Send reset link via email;
+
+stop
+@enduml
