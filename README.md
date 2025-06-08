@@ -44,7 +44,7 @@ A layered architecture for separation of concerns:
 - **Frontend** (Mobile & Web)
 - **Backend API** (Spring Boot)
 - **Database** (Relational)
-- **Media Storage** (S3 or Cloudinary)
+- **Media Storage** (S3 or ...)
 - **Scheduler/Notification Service** (optional)
 
 ### 🧩 Components
@@ -75,9 +75,9 @@ A layered architecture for separation of concerns:
 | System Architecture      | High-level overview of system components         | ✅ Added  |
 | Flowchart Diagram        | Flow of user actions within the system           | ✅ Added  |
 | Use Case Diagram         | Functionalities from user's perspective          | ✅ Added  |
-| Entity Relationship (ER) | Database schema, tables and their relationships  | Not started |
-| Class Diagram            | Class-level interaction and structure (LLD)      | Not started |
-| API Flow Diagram         | Request/response and endpoint interactions       | Not started |
+| Entity Relationship (ER) | Database schema, tables and their relationships  | ⏳ Planned |
+| Class Diagram            | Class-level interaction and structure (LLD)      | ⏳ Planned |
+| API Flow Diagram         | Request/response and endpoint interactions       | ✅ Added  |
 
 ### Architecture Diagram
 ![Image](diagrams/architecture-diagram.png)
@@ -112,7 +112,19 @@ A layered architecture for separation of concerns:
 
 ## 🖼 Use Case Diagram
 
-![Use Case Diagram](./diagrams/use-case-diagram.png)
+- [Use Case Diagram](./diagrams/use-case-diagram.png)
+
+## Api Flow Diagrams
+
+Click to view each API flow diagram:
+
+- [Auth Service Flow](./diagrams/auth-module.png)
+- [Board Service Flow](./diagrams/board-module.png)
+- [Memory Service Flow](./diagrams/memory-module.png)
+- [Explore Service Flow](./diagrams/explore-module.png)
+- [Calender Service Flow](./diagrams/calender-module.png)
+- [Notification Service Flow](./diagrams/notification-module.png)
+- [Profile Service Flow](./diagrams/profile-module.png)
 
 
 ## 📃 License
