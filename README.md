@@ -44,7 +44,7 @@ A layered architecture for separation of concerns:
 - **Frontend** (Mobile & Web)
 - **Backend API** (Spring Boot)
 - **Database** (Relational)
-- **Media Storage** (S3 or ...)
+- **Media Storage** (Cloudinary)
 - **Scheduler/Notification Service** (optional)
 
 ### 🧩 Components
@@ -75,12 +75,14 @@ A layered architecture for separation of concerns:
 | System Architecture      | High-level overview of system components         | ✅ Added  |
 | Flowchart Diagram        | Flow of user actions within the system           | ✅ Added  |
 | Use Case Diagram         | Functionalities from user's perspective          | ✅ Added  |
-| Entity Relationship (ER) | Database schema, tables and their relationships  | ⏳ Planned |
-| Class Diagram            | Class-level interaction and structure (LLD)      | ⏳ Planned |
+| Entity Relationship (ER) | Database schema, tables and their relationships  | ✅ Added  |
+| Class Diagram            | Class-level interaction and structure (LLD)      | ✅ Added  |
 | API Flow Diagram         | Request/response and endpoint interactions       | ✅ Added  |
 
+> 🛠 Tools Used: [draw.io](https://app.diagrams.net/), [Lucidchart](https://www.lucidchart.com/pages)
+
 ### Architecture Diagram
-![Image](diagrams/architecture-diagram.png)
+![Architecture Diagram](diagrams/architecture-diagram.png)
 
 ### Flowchart Diagram
 
@@ -95,7 +97,7 @@ A layered architecture for separation of concerns:
 | 🔶 Diamond       | Decision      | A diamond indicates a decision                                |
 
 #### Diagram
-![Image](diagrams/flowchart-diagram.png)
+![Flowchart](diagrams/flowchart-diagram.png)
 
 ###  Use Case Diagram 
 
@@ -113,6 +115,20 @@ A layered architecture for separation of concerns:
 ## 🖼 Use Case Diagram
 
 - [Use Case Diagram](./diagrams/use-case-diagram.png)
+
+###  Entity Relationship Diagram (ERD)
+
+- [📘 Conceptual ERD](./diagrams/ERD.drawio.png)
+- [📗 Logical ERD](./diagrams/erd-diagram.png)
+
+> ✅ **Two approaches are used:**
+> - The **first** diagram is a **Conceptual ERD** — focuses on entities and high-level relationships.
+> - The **second** is a **Logical ERD** — includes attributes, primary/foreign keys, and relationship details.
+
+
+## Class Diagram
+
+- [Class Diagram](./diagrams/class-diagram.drawio.png)
 
 ## Api Flow Diagrams
 
